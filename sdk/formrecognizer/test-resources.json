@@ -16,11 +16,11 @@
                 "description": "The location of the resource. By default, this is the same as the resource group."
             }
         },
-        "cognitiveServicesEndpointSuffix": {
+        "endpointPrefix": {
             "defaultValue": "formrecognizer",
             "type": "string"
         },
-        "endpointSuffix": {
+        "cognitiveServicesEndpointSuffix": {
             "defaultValue": ".cognitiveservices.azure.com",
             "type": "string"
         },
@@ -80,8 +80,8 @@
     },
     "variables": {
         "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/a97b65f3-24c7-4388-baec-2e87135dc908')]",
-        "uniqueSubDomainName": "[format('{0}-{1}', parameters('baseName'), parameters('cognitiveServicesEndpointSuffix'))]",
-        "endpointValue": "[format('https://{0}-{1}{2}', parameters('baseName'), parameters('cognitiveServicesEndpointSuffix'), parameters('cognitiveServicesEndpointSuffix'))]"
+        "uniqueSubDomainName": "[format('{0}-{1}', parameters('baseName'), parameters('endpointPrefix'))]",
+        "endpointValue": "[format('https://{0}-{1}{2}', parameters('baseName'), parameters('endpointPrefix'), parameters('cognitiveServicesEndpointSuffix'))]"
     },
     "resources": [
         {
